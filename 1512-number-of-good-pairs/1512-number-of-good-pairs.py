@@ -1,14 +1,14 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        gpHashmap={}
+        gpHashMap = {}
         ans = 0
-        for num in nums:
-            if num in gpHashmap:
-                
-                ans += gpHashmap[num]
-                gpHashmap[num] += 1
-            else:
-                gpHashmap[num] = 1
         
-        return ans
+        for num in nums:
+            if num in gpHashMap:
+                ans += gpHashMap[num]
+                gpHashMap[num] += 1
                 
+            else:
+                gpHashMap[num] = 1
+                
+        return ans
