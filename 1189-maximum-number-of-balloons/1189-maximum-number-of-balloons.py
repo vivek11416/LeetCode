@@ -15,9 +15,7 @@ class Solution:
                 temp.append(v//2)
             else:
                 temp.append(v)
-        
-        print(temp)
-        print(count)
+
                 
         return min(temp)
                 
