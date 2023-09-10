@@ -2,11 +2,11 @@ class Solution:
     def maxNumberOfBalloons(self, text: str) -> int:
         count = {"b":0,"a":0,"l":0,"o":0,"n":0}
         textList = list(text)
-        temp = []
+        temp=[]
         
         for val in textList:
             try:
-                count[val] +=1
+                count[val] += 1
             except:
                 continue
         
@@ -15,8 +15,9 @@ class Solution:
                 temp.append(v//2)
             else:
                 temp.append(v)
-
                 
         return min(temp)
                 
+                
+        
         
