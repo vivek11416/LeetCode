@@ -20,4 +20,5 @@ class Solution:
             ans += (v*(v-1))//2
             
         return ans
+            
         
