@@ -1,0 +1,29 @@
+def encode( strs):
+    # write your code here
+    ans = []
+    for items in strs:
+        ans.append(str(len(items))+"#"+items)
+
+    return ''.join(ans)
+
+
+"""
+@param: str: A string
+@return: decodes a single string to a list of strings
+"""
+def decode( str):
+    ans = []
+
+    encoded = list(str)
+    li=0
+    for i in range(len(encoded)):
+        try:
+
+            if encoded[i] == "#":
+                ans.append(''.join(encoded[i+1:i+1+int(''.join(encoded[li:i]))]))
+                li = i+1+int(''.join(encoded[li:i]))
+        except:
+
+            pass
+
+    return ans
