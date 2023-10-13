@@ -4,7 +4,7 @@ class Solution:
         setNums = set(nums)
         longest = 0
         
-        for val in setNums:
+        for val in nums:
             if val-1 not in setNums:
                 length = 1
                 while val+length in setNums:
