@@ -1,19 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        holderOpen = []
-        closeToOpen = {")":"(","}":"{","]":"["}
-        
-        
-        for c in s :
-            if c in closeToOpen:
-                if holderOpen and holderOpen[-1] == closeToOpen[c]:
-                    holderOpen.pop()
-                
-                else:
+        mystack = []
+        for p in s:
+            if p in ['(', '[', '{']:
+                mystack.append(p)
+            elif p == ')':
+                try:
+                    assert mystack.pop() == '('
+                except:
                     return False
-                
-            else:
-                holderOpen.append(c)
-                
-        return True if not holderOpen else False
-                
+            elif p == ']':
+                try:
+                    assert mystack.pop() == '['
+                except:
+                    return False
+            elif p == '}':
+                try:
+                    assert mystack.pop() == '{'
+                except:
+                    return False
+        return True if not mystack else False
+        
