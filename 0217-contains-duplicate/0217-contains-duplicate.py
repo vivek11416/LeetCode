@@ -5,6 +5,7 @@ class Solution:
             countMap[v] = 1 + countMap.get(v,0)
             if countMap[v]>=2:
                 return True
+                break
         
         return False
         
