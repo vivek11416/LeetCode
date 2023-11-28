@@ -1,3 +1,12 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return len(nums) != len(set(nums))
+        countMap = {}
+        for v in nums:
+            countMap[v] = 1 + countMap.get(v,0)
+            if countMap[v]>=2:
+                return True
+        
+        return False
+        
+        
+        
