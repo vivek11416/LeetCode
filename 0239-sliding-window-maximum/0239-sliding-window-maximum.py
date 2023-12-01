@@ -22,5 +22,5 @@ class Solution:
             queue.append(nums[i])
             ans.append(queue[0])
         
-        print(ans)
+
         return ans
