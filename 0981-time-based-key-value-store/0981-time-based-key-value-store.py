@@ -1,39 +1,34 @@
-from collections import defaultdict  
 class TimeMap:
-    
+
     def __init__(self):
-        self.valueMap = {}
-        self.keytimeMap = defaultdict(list)
+        self.keyTimestamp = {}
+        self.keyValueList = defaultdict(list)
         
 
     def set(self, key: str, value: str, timestamp: int) -> None:
-        self.valueMap[(key,timestamp)] = value
-        self.keytimeMap[key].append(timestamp)
-        
+        self.keyTimestamp[(key,timestamp)]=value
+        self.keyValueList[key].append(timestamp)
+
     def get(self, key: str, timestamp: int) -> str:
-        selList = self.keytimeMap[key]
-        l,r  = 0 , len(selList)-1
-        ans =None
-        if not selList or timestamp < selList[0]:
+        tiStLis = self.keyValueList[key]
+        if not tiStLis or tiStLis[0]>timestamp:
             return ""
         
+        l = 0
+        r = len(tiStLis)-1
+        
         while l<=r:
-            m=(l+r)//2
-            if timestamp>selList[m]:
-                l = m+1
-            
-            elif timestamp<selList[m]:
+            m = (l+r)//2
+            if tiStLis[m] == timestamp:
+                return self.keyTimestamp[(key,tiStLis[m])]
+            elif timestamp<tiStLis[m]:
                 r = m-1
+            elif timestamp>tiStLis[m]:
+                l = m+1
+        return self.keyTimestamp[(key,tiStLis[l-1])]
+        
                 
-            else:
-                ans = selList[m]
-                break
-                
-        if not ans:
-            ans = selList[l-1]
-            
-        return self.valueMap[(key,ans)]
-            
+        
         
 
 
