@@ -22,9 +22,10 @@ class Solution:
             
             
             if leftA <= rightB and leftB <= rightA :
-                if totLen % 2:
+                if totLen % 2>0:
                     return min(rightB,rightA)
-                return (max(leftB,leftA)+min(rightB,rightA))/2
+                else:
+                    return (max(leftB,leftA)+min(rightB,rightA))/2
                 
                     
             
