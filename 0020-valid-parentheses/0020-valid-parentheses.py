@@ -1,23 +1,14 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        mystack = []
-        for p in s:
-            if p in ['(', '[', '{']:
-                mystack.append(p)
-            elif p == ')':
-                try:
-                    assert mystack.pop() == '('
-                except:
-                    return False
-            elif p == ']':
-                try:
-                    assert mystack.pop() == '['
-                except:
-                    return False
-            elif p == '}':
-                try:
-                    assert mystack.pop() == '{'
-                except:
-                    return False
-        return True if not mystack else False
+        validDict = {')':'(','}':'{',']':'['}
+        stack = []
+        
+        for val in s:
+            if stack and val in validDict and stack[-1] == validDict[val] :
+                stack.pop()
+            else:
+                stack.append(val)
+                
+        return False if stack else True
+            
         
