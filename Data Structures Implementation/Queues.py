@@ -116,3 +116,5 @@ queue.dequeue()
 queue.dequeue()
 print(queue.Stack1)
 print(queue.Stack2)
+
+#page 180
