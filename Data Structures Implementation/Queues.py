@@ -73,16 +73,46 @@ class NodeQueue():
             return data
 
 
-q = NodeQueue()
-q.enqueue(20)
-q.enqueue(30)
-q.enqueue(40)
-q.enqueue(50)
-print(q.dequeue())
+# q = NodeQueue()
+# q.enqueue(20)
+# q.enqueue(30)
+# q.enqueue(40)
+# q.enqueue(50)
+# print(q.dequeue())
+#
+# cur = q.head
+# print(cur)
+# while cur:
+#
+#     print(cur.data)
+#     cur = cur.next
 
-cur = q.head
-print(cur)
-while cur:
 
-    print(cur.data)
-    cur = cur.next
+#stack based Queue implementation
+class Queue:
+    def __init__(self):
+        self.Stack1 = []
+        self.Stack2 = []
+#stack1 is only used to store elements
+
+    def enqueue(self,data):
+        self.Stack1.append(data)
+
+    def dequeue(self):
+        if not self.Stack2:
+            while self.Stack1:
+                self.Stack2.append(self.Stack1.pop())
+        return self.Stack2.pop()
+
+
+
+queue = Queue()
+queue.enqueue(23)
+queue.enqueue(13)
+queue.enqueue(11)
+print(queue.Stack1)
+
+queue.dequeue()
+queue.dequeue()
+print(queue.Stack1)
+print(queue.Stack2)
