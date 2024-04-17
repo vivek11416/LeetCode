@@ -7,17 +7,18 @@ class Solution:
     def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         result = placeHolderNode = ListNode(0)
         curr = head.next
-        
+        temp = 0
         while curr:
-            temp = 0
+            
             while curr.val != 0:
                 temp += curr.val          
                 curr = curr.next
                 
-            
-            placeHolderNode.next = ListNode(temp)
-            placeHolderNode = placeHolderNode.next
-            curr = curr.next
-
+            else:
+                placeHolderNode.next = ListNode(temp)
+                placeHolderNode = placeHolderNode.next
+                temp=0
+                curr = curr.next
+                
         return result.next
         
