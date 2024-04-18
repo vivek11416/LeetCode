@@ -1,15 +1,12 @@
 class Solution:
     def arraySign(self, nums: List[int]) -> int:
-        prod = 1
-        for val in nums:
-            prod *= val
-            
-        if prod == 0:
-            return 0
-        elif prod < 0:
-            return -1
-        else:
-            return 1
+        res = 1
+        
+        for i in nums:
+            if i == 0 : return 0
+            elif i <0 : res = -res
+        
+        return res
             
             
         
