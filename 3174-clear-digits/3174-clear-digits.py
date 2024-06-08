@@ -8,7 +8,6 @@ class Solution:
                 heapq.heappush(heap,-i)
             
             else:
-                print('hello')
                 heapq.heappop(heap)
                 
         ansList = []
