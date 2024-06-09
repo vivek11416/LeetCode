@@ -6,16 +6,16 @@ class Solution:
         
         
         maxi = 0
-        player = 0
+        wins = 0
         for i in range(1,len(skills)):
 
             if skills[maxi] < skills[i]:
                 maxi = i
-                player = 1
+                wins = 1
             else:
-                player += 1
+                wins += 1
 
-            if player == k:
+            if wins == k:
                 return maxi
                 
         return maxi
