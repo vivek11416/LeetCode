@@ -5,15 +5,12 @@ class Solution:
         ans=0
         preSum = 0
         
-        for i,num in enumerate(nums):
+        for num in nums:
             preSum += num
             rem = preSum % k
-            
             if rem in remMap:
                 ans += remMap[rem]
-            
             remMap[rem] += 1
-            
         return ans
             
      
